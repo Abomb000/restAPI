@@ -1,0 +1,29 @@
+{
+  "name": "restapi",
+  "version": "1.0.0",
+  "description": "restAPI",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha --exit --recursive "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abomb000/restAPI.git"
+  },
+  "author": "A",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Abomb000/restAPI/issues"
+  },
+  "homepage": "https://github.com/Abomb000/restAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.28",
+    "mysql": "^2.18.1",
+    "proxyquire": "^2.1.3",
+    "request": "^2.88.2"
+  }
+}
