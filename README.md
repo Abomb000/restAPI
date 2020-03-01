@@ -9,6 +9,19 @@ docker-compose up --build
 npm test
 ```
 
+#### SQL table:
+*** The table will be automatically created
+```sql
+CREATE TABLE IF NOT EXISTS `dataSet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `timestamp` int(11) NOT NULL,
+  `type` enum('temperature','pressure','​volume​') NOT NULL,
+  `value` float NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `timestamp` (`timestamp`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+```
+
 #### Settings:
 Basic configuration "app/config/config.js"
 
