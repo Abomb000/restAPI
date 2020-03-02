@@ -178,3 +178,45 @@ Response example:
 ```
 {"result":false}
 ```
+
+## Bonus
+Endpoint URL: 
+    
+    http://[HOST]:3005/etl/[METRIC]/[PERIOD]/[INTERVAL]
+    
+METRIC - Can be one from following metrics ['temperature','pressure','volume']
+
+PERIOD - time period from db (Data limitation period)
+
+INTERVAL - aggregation interval 
+
+!!! The PERIOD always must to be bigger than INTERVAL
+
+#####  PERIOD and INTERVAL values
+
+```times
+    Y - years
+    M - months
+    D - days
+    h - hours
+    m - minutes
+    default is one sec
+```
+
+Example:
+```sh
+$ curl -i -H 'Accept: application/json' http://[HOST]/etl/temperature/5D/3m
+```  
+```js
+var URL="http://[HOST]/etl/temperature/5D/3m";
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', URL, true);
+xhr.responseType = 'json';
+xhr.onload = function() {
+	console.log(xhr.status);
+	console.log(xhr.response);
+};
+xhr.send();
+```
+* In this example we got "temperature" data from last five days with resolution of every 3minutes

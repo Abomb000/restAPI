@@ -13,7 +13,6 @@ Data.get = function (result) {
             result(null, err);
         }
         else{
-            //console.log('tasks : ', res);
             result(null, res);
         }
     });
@@ -21,13 +20,12 @@ Data.get = function (result) {
 
 Data.getall = function (type, period, result) {
     mysqldb.con.query("SELECT * FROM `"+config.mysqlDB.tbl+"`\n" +
-        " WHERE type = ?" ,[type, period],function (err, res) {
+        " WHERE type = ? AND timestamp >= ?" ,[type, period],function (err, res) {
         if(err) {
             console.log("error: ", err);
             result(null, err);
         }
         else{
-            //console.log('tasks : ', res);
             result(null, res);
         }
     });
