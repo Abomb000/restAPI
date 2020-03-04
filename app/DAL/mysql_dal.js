@@ -2,12 +2,7 @@
 const mysql = require('mysql');
 const config = require('../config/config');
 
-let con;
-
-con = mysql.createConnection(config.mysqlDB);
-con.connect(function(err) {
-    if (err) throw err;
-});
+var con  = mysql.createPool(Object.assign({}, config.mysqlDB,{connectionLimit : 10,multipleStatements: true}));
 
 console.log('create db and tbl if not exists');
 con.query("CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8;",(err, res) => {
